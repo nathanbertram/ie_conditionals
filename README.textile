@@ -1,13 +1,10 @@
 h1. Rails IE Conditionals Plugin
 
-Created as a quick and easy way to add IE conditionals to your templates.
+Created as a quick and easy way to add IE conditionals to your templates. Has only been tested in Rails 2.3.8 so far.
 
 Current Support: IE6, IE7 & IE8
-So far, has only been tested in Rails 2.3.8.
 
-h1. Sample Usage
-
-h2. Method A: Specific Stylesheets for each version of Internet Explorer
+h2. Sample Usage - Method A: Specific Stylesheets for each version of Internet Explorer
 
 ie_conditionals method called directly in your template(s). 
 
@@ -30,7 +27,7 @@ ie_conditionals({
 }) 
 
 
-h2. Method B: Specific div's targeted towards spefic 
+h2. Sample Usage - Method B: Specific div's targeted towards spefic 
 
 ie_conditionals method called with a block directly in your template(s). 
 
@@ -62,7 +59,8 @@ ie_conditionals({
 }) 
 
 Read more about this technique here:
-http://positioniseverything.net/articles/cc-plus.html
+"http://positioniseverything.net/articles/cc-plus.html":http://positioniseverything.net/articles/cc-plus.html
+
 
 h2. Other Notes
 
