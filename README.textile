@@ -1,0 +1,69 @@
+h1. Rails IE Conditionals Plugin
+
+Created as a quick and easy way to add IE conditionals to your templates.
+
+Current Support: IE6, IE7 & IE8
+So far, has only been tested in Rails 2.3.8.
+
+h1. Sample Usage
+
+h2. Method A: Specific Stylesheets for each version of Internet Explorer
+
+ie_conditionals method called directly in your template(s). 
+
+<head>
+...
+<%= ie_conditionals %>
+</head>
+
+Returns:
+<!--[if IE 8]><link href="/stylesheets/ie8.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+<!--[if IE 7]><link href="/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+<!--[if IE 6]><link href="/stylesheets/ie6.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+
+Be sure to add the corresponding stylesheets in /public/stylesheets/.
+
+Options:
+ie_conditionals({
+  :only => [7,8], # only include conditional stylesheets for IE7 and IE8
+  :prefix => 'ie/internet_explora' # changes stylesheet prefixes from ie to internet_explora... eg. "/stylesheets/ie/internet_explora.css"
+}) 
+
+
+h2. Method B: Specific div's targeted towards spefic 
+
+ie_conditionals method called with a block directly in your template(s). 
+
+<body>
+  <%= ie_conditionals do %>
+    // template content here
+  <%= end %>
+</body>
+
+Returns:
+<body>
+  <!--[if IE 8]><div id="ie8"><![endif]-->
+  <!--[if IE 7]><div id="ie7"><![endif]-->
+  <!--[if IE 6]><div id="ie6"><![endif]-->
+  ... // template content here
+  <!--[if IE 6]><div id="ie6"><![endif]-->
+</body>
+
+In your css:
+
+#ie6 #some_div {
+  // put your css overrides in your main css file
+}
+
+Options:
+ie_conditionals({
+  :only => [7,8], # only include conditional divs for IE7 and IE8
+  :prefix => 'internet_explora' # changes div prefix's eg. <!--[if IE 8]><div id="internet_explora8"><![endif]-->
+}) 
+
+Read more about this technique here:
+http://positioniseverything.net/articles/cc-plus.html
+
+h2. Other Notes
+
+Todo: Enter IE rant here.
